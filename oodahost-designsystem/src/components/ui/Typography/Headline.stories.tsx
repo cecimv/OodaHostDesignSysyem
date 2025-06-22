@@ -6,10 +6,10 @@ const meta: Meta<typeof Headline> = {
   title: 'components/Typography/Headline',
   component: Headline,
   parameters: {
-    layout: 'padded',
+    layout: 'centered',
     docs: {
       description: {
-        component: 'Componente Headline del design system. Usa Roboto Extra Bold con tamaños específicos para diferentes jerarquías de títulos.'
+        component: 'The Headline is the typographic style used for titles and headings in interfaces. It defines characteristics such as larger font size, heavier weight, and tighter line spacing, aiming to capture attention and establish clear visual hierarchy. It is used to highlight important sections and differentiate titles from other text elements.'
       }
     }
   },
@@ -17,17 +17,18 @@ const meta: Meta<typeof Headline> = {
     size: {
       control: { type: 'select' },
       options: ['xl', 'l', 'm', 's', 'xs'],
-      description: 'Tamaño del headline basado en las especificaciones del design system'
+      description: 'Size variant of the headline text.'
     },
-    color: {
-      control: { type: 'select' },
-      options: ['primary', 'secondary', 'accent'],
-      description: 'Color del texto'
-    },
+
     children: {
       control: 'text',
-      description: 'Contenido del headline'
-    }
+      description: 'Headline content.'
+    },
+
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes.',
+    },
   },
   tags: ['autodocs']
 };
@@ -40,8 +41,14 @@ export const Default: Story = {
   args: {
     size: 'xl',
     children: 'Headline Text',
-    color: 'primary'
-  }
+  },
+  parameters:{
+    docs:{
+      description:{
+        story: 'The default Headline style defines the primary typographic properties applied to titles and headings within components.',
+      },
+    },
+  },
 };
 
 // Mostrar todas las variantes de tamaño
@@ -73,67 +80,16 @@ export const AllSizes: Story = {
         <Headline size="xs">Heading XS</Headline>
       </div>
     </div>
-  )
+  ),
+  parameters:{
+    docs:{
+      description:{
+        story: 'A complete set of typographic sizes for Headline text, ranging from XS (32px) to XL (96px), enabling precise and consistent scalability for headings across the interface.',
+      },
+    },
+  },
 };
 
-// Diferentes colores
-export const Colors: Story = {
-  render: () => (
-    <div className="space-y-6">
-      <Headline size="m" color="primary">
-        Primary Color
-      </Headline>
-      <Headline size="m" color="secondary">
-        Secondary Color
-      </Headline>
-      <Headline size="m" color="accent">
-        Accent Color
-      </Headline>
-    </div>
-  )
-};
-
-// Ejemplo de uso real
-export const UsageExample: Story = {
-  render: () => (
-    <article className="max-w-4xl mx-auto space-y-6">
-      <Headline size="xl" color="primary">
-        Design System Documentation
-      </Headline>
-      
-      <Headline size="m" color="secondary">
-        Typography Guidelines
-      </Headline>
-      
-      <Headline size="s" color="primary">
-        Headline Component
-      </Headline>
-      
-      <Headline size="xs" color="secondary">
-        Implementation Details
-      </Headline>
-    </article>
-  )
-};
-
-// Ejemplo responsivo
-export const ResponsiveExample: Story = {
-  render: () => (
-    <div className="space-y-4">
-      <p className="text-sm text-gray-500 mb-4">
-        Resize the viewport to see responsive behavior
-      </p>
-      <Headline size="xl">
-        Responsive Headline
-      </Headline>
-      <p className="text-xs text-gray-400">
-        XL: 96px → 64px (tablet) → 48px (mobile)
-      </p>
-    </div>
-  )
-};
-
-// Especificaciones técnicas
 export const Specifications: Story = {
   render: () => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -160,5 +116,12 @@ export const Specifications: Story = {
         </div>
       ))}
     </div>
-  )
+  ),
+  parameters:{
+    docs:{
+      description:{
+        story: 'The specifications detail the typographic characteristics of each Headline text variant, including the font family used and the font weight (Extra Bold) across all sizes. These sizes range from 96px in Headline-XL to 32px in Headline-XS, ensuring proper visual hierarchy and consistency in the presentation of headings throughout the interface.',
+      },
+    },
+  },
 };

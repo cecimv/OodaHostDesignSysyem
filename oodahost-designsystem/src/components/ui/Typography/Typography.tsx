@@ -6,7 +6,6 @@ export interface HeadlineProps {
   size?: 'xl' | 'l' | 'm' | 's' | 'xs';
   children: React.ReactNode;
   className?: string;
-  color?: 'primary' | 'secondary' | 'accent';
 }
 
 const headlineSizeClasses = {
@@ -15,12 +14,6 @@ const headlineSizeClasses = {
   m: 'text-6xl font-black leading-tight -tracking-tight',
   s: 'text-5xl font-black leading-tight -tracking-tight',
   xs: 'text-3xl font-black leading-snug'
-};
-
-const headlineColorClasses = {
-  primary: 'text-gray-950',
-  secondary: 'text-gray-600',
-  accent: 'text-blue-600'
 };
 
 const headlineResponsiveClasses = {
@@ -46,14 +39,12 @@ export const Headline: React.FC<HeadlineProps & React.HTMLAttributes<HTMLHeading
   size = 'xl',
   children,
   className = '',
-  color = 'primary',
   ...props
 }) => {
   const HeadingTag = getHeadlineTag(size);
   const combinedClasses = [
     'font-roboto',
     headlineSizeClasses[size],
-    headlineColorClasses[color],
     headlineResponsiveClasses[size],
     className
   ]
@@ -73,7 +64,6 @@ export interface HighlightProps {
   size?: 'xl' | 'l' | 'm' | 's' | 'xs';
   children: React.ReactNode;
   className?: string;
-  color?: 'primary' | 'secondary' | 'accent';
 }
 
 const highlightSizeClasses = {
@@ -82,12 +72,6 @@ const highlightSizeClasses = {
   m: 'text-base font-bold leading-normal',
   s: 'text-sm font-bold leading-normal',
   xs: 'text-xs font-bold leading-normal'
-};
-
-const highlightColorClasses = {
-  primary: 'text-gray-950',
-  secondary: 'text-gray-600',
-  accent: 'text-blue-600'
 };
 
 const highlightResponsiveClasses = {
@@ -108,7 +92,6 @@ export const Highlight: React.FC<
   size = 'xl',
   children,
   className = '',
-  color = 'primary',
   ...props
 }) => {
   const HighlightTag = getHighlightTag();
@@ -116,7 +99,6 @@ export const Highlight: React.FC<
   const combinedClasses = [
     'font-roboto',
     highlightSizeClasses[size],
-    highlightColorClasses[color],
     highlightResponsiveClasses[size],
     className
   ]

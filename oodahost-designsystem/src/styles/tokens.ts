@@ -3,7 +3,7 @@ export const designTokens = {
       primary: {
         50: '#111110',
         500: '#2a2a2a',
-        900: '#4a4a4a',
+        900: '#111110',
         /*50: '#eff6ff',
         500: '#3b82f6',
         600: '#2563eb',

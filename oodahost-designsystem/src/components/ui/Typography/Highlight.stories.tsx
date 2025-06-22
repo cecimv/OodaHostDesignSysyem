@@ -6,10 +6,10 @@ const meta: Meta<typeof Highlight> = {
   title: 'components/Typography/Highlight',
   component: Highlight,
   parameters: {
-    layout: 'padded',
+    layout: 'centered',
     docs: {
       description: {
-        component: 'Componente Highlight del design system. Usa Roboto Bold/Extra Bold para textos destacados y llamativos.'
+        component: 'The Highlight is a typographic style designed to emphasize specific text within the interface, such as keywords or important phrases. It usually includes variations in weight, color, or style to draw attention without compromising overall readability. It is used to emphasize relevant content within paragraphs or lists.',
       }
     }
   },
@@ -17,17 +17,18 @@ const meta: Meta<typeof Highlight> = {
     size: {
       control: { type: 'select' },
       options: ['xl', 'l', 'm', 's', 'xs'],
-      description: 'Tamaño del highlight basado en las especificaciones del design system'
+      description: 'Size variant of the highlight text.'
     },
-    color: {
-      control: { type: 'select' },
-      options: ['primary', 'secondary', 'accent'],
-      description: 'Color del texto'
-    },
+
     children: {
       control: 'text',
-      description: 'Contenido del highlight'
-    }
+      description: 'Contenido del highlight.'
+    },
+
+    className: {
+      control: 'text',
+      description: 'Additional CSS classes.',
+    },
   },
   tags: ['autodocs']
 };
@@ -39,9 +40,15 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     size: 'xl',
-    children: 'I\'m a Highlight XL',
-    color: 'primary'
-  }
+    children: 'I\'m a Highlight XL',  
+  },
+  parameters:{
+    docs:{
+      description:{
+        story: 'The default Highlight style defines the typographic properties applied to emphasized text within components, such as keywords or important phrases.',
+      },
+    },
+  },
 };
 
 // Mostrar todas las variantes de tamaño
@@ -73,80 +80,16 @@ export const AllSizes: Story = {
         <Highlight size="xs">I'm a Highlight Xs</Highlight>
       </div>
     </div>
-  )
+  ),
+  parameters:{
+    docs:{
+      description:{
+        story: 'A complete set of typographic sizes for Highlight text, ranging from XS (12px) to XL (24px), enabling precise and consistent emphasis across textual content in the interface.',
+      },
+    },
+  },
 };
 
-// Diferentes colores
-export const Colors: Story = {
-  render: () => (
-    <div className="space-y-4">
-      <Highlight size="l" color="primary">
-        Primary Highlight
-      </Highlight>
-      <Highlight size="l" color="secondary">
-        Secondary Highlight
-      </Highlight>
-      <Highlight size="l" color="accent">
-        Accent Highlight
-      </Highlight>
-    </div>
-  )
-};
-
-// Ejemplo de uso en contexto
-export const InContext: Story = {
-  render: () => (
-    <div className="max-w-2xl space-y-4">
-      <p className="text-base text-gray-700">
-        Este es un párrafo normal con <Highlight size="m">texto destacado</Highlight> en 
-        el medio para llamar la atención del usuario.
-      </p>
-      
-      <p className="text-base text-gray-700">
-        También puedes usar highlights más grandes como <Highlight size="l" color="accent">
-        elementos principales
-        </Highlight> dentro del contenido.
-      </p>
-      
-      <div className="border-l-4 border-blue-500 pl-4 py-2 bg-blue-50">
-        <Highlight size="xl" color="primary">
-          Destacado importante
-        </Highlight>
-        <p className="text-sm text-gray-600 mt-1">
-          Información adicional sobre este destacado
-        </p>
-      </div>
-    </div>
-  )
-};
-
-// Ejemplo para llamadas a la acción
-export const CallToAction: Story = {
-  render: () => (
-    <div className="space-y-6">
-      <div className="text-center p-6 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
-        <Highlight size="xl" color="accent">
-          ¡Oferta especial!
-        </Highlight>
-        <p className="text-gray-600 mt-2">
-          <Highlight size="m">50% de descuento</Highlight> en todos los productos
-        </p>
-      </div>
-      
-      <div className="p-4 border border-gray-200 rounded-lg">
-        <Highlight size="l" color="primary">
-          Nuevo feature disponible
-        </Highlight>
-        <p className="text-gray-600 mt-1">
-          Descubre las <Highlight size="s" color="accent">últimas funcionalidades</Highlight> 
-          de nuestra plataforma
-        </p>
-      </div>
-    </div>
-  )
-};
-
-// Especificaciones técnicas
 export const Specifications: Story = {
   render: () => (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -173,5 +116,12 @@ export const Specifications: Story = {
         </div>
       ))}
     </div>
-  )
+  ),
+  parameters:{
+    docs:{
+      description:{
+        story: 'The specifications detail the typographic characteristics of each Highlight text variant, including the font family used, the font weight (Extra Bold), and the specific font size for each variant (XL, L, M, S, XS). These sizes range from 24px in Highlight-XL to 12px in Highlight-XS, ensuring precise emphasis and consistent presentation across textual content.',
+      },
+    },
+  },
 };

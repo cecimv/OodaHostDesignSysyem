@@ -3,7 +3,7 @@ import { ButtonPrimaryLightmode } from "./Button-Primary-Lightmode";
 import { Plus } from 'lucide-react';
 
 const meta = {
-    title: "Components/Button-Primary-Lightmode",
+    title: "Components/Button/Button-Primary-Lightmode",
     component: ButtonPrimaryLightmode,
     parameters: {
         layout: "centered",
@@ -70,7 +70,7 @@ export const primaryTextOnly: Story = {
     parameters: {
         docs: {
             description: {
-                story: "Button indicates the main action, and there is only one primary button for one action section.",
+                story: "Primary button with text only, used to represent a main action in a direct and simple way, without visual distractions. Ideal when the text alone clearly communicates the intent of the action, such as 'Save' or 'Accept'.",
             },
         },
     },
@@ -85,7 +85,7 @@ export const primaryLeftIcon: Story = {
     parameters: {
         docs: {
             description: {
-                story: "Button indicates the main action, and there is only one primary button for one action section.",
+                story: "Primary button with an icon aligned to the left of the text, useful when you want to visually reinforce the button's action (e.g., a '+' icon for 'Add') and support quick user understanding. This design is common in modern interfaces and enhances visual accessibility.",
             },
         },
     },
@@ -100,7 +100,7 @@ export const primaryRightIcon: Story = {
     parameters: {
         docs: {
             description: {
-                story: "Button indicates the main action, and there is only one primary button for one action section.",
+                story: "Primary button with an icon aligned to the right of the text, used when you want to add a subtle visual cue without interfering with the natural reading flow. It is also useful when the button is part of lists, menus, or flows with directional structure.",
             },
         },
     },

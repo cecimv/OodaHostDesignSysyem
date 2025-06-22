@@ -4,7 +4,7 @@ import { ButtonLightmode } from "./Button-Lightmode";
 import { Plus } from 'lucide-react';
 
 const meta = {
-    title: "Components/Button-Lightmode",
+    title: "Example/Button-Lightmode",
     component: ButtonLightmode,
     parameters: {
         layout: "centered",

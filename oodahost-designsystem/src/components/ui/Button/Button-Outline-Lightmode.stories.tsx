@@ -3,7 +3,7 @@ import { ButtonOutlineLightmode } from "./Button-Outline-Lightmode";
 import { Plus } from 'lucide-react';
 
 const meta = {
-    title: "Components/Button-Outline-Lightmode",
+    title: "Components/Button/Button-Outline-Lightmode",
     component: ButtonOutlineLightmode,
     parameters: {
         layout: "centered",

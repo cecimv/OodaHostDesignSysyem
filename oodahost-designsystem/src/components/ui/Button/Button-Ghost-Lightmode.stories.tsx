@@ -3,7 +3,7 @@ import { ButtonLightmode } from "./Button-Lightmode";
 import { Plus } from 'lucide-react';
 
 const meta = {
-    title: "Components/Button/Button-Ghost-Lightmode",
+    title: "Components/Button/Button-Ghost-Lightmode", //después modificar para que se ubique en la carpeta de button
     component: ButtonLightmode,
     parameters: {
         layout: "centered",

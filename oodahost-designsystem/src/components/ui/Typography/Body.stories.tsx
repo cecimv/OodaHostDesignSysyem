@@ -8,7 +8,7 @@ const meta: Meta<typeof Body> = {
     layout: 'centered',
     docs: {
       description: {
-        component: 'Body typography component with different size variants using Roboto font family.',
+        component: 'The Body is the primary typographic style used for extended text in interfaces. It defines key characteristics such as font size, line height, and weight, optimized to maximize readability and reading comfort. It serves as the base style for paragraphs and continuous content, distinguishing itself from headings and other text elements.',
       },
     },
   },
@@ -48,6 +48,13 @@ export const Default: Story = {
   args: {
     children: 'This is the default body text',
   },
+  parameters: {
+    docs: {
+      description: {
+        story: 'The default Body style defines the base typographic properties applied to the main text of paragraphs and extended content within components.',
+      },
+    },
+  },
 };
 
 // All sizes showcase
@@ -79,7 +86,7 @@ export const AllSizes: Story = {
   parameters: {
     docs: {
       description: {
-        story: 'All available body text sizes from XS (12px) to XL (24px).',
+        story: 'A complete set of typographic sizes for Body text, ranging from XS (12px) to XL (24px), enabling precise and consistent scalability across the interface.',
       },
     },
   },
@@ -111,88 +118,12 @@ export const Specifications: Story = {
           </div>
         ))}
       </div>
-    )
-  };;
-
-// Individual size stories
-export const ExtraSmall: Story = {
-  args: {
-    size: 'xs',
-    children: 'I\'m a Body Xs',
-  },
-};
-
-export const Small: Story = {
-  args: {
-    size: 's',
-    children: 'I\'m a Body S',
-  },
-};
-
-export const Medium: Story = {
-  args: {
-    size: 'm',
-    children: 'I\'m a Body M',
-  },
-};
-
-export const Large: Story = {
-  args: {
-    size: 'l',
-    children: 'I\'m a Body L',
-  },
-};
-
-export const ExtraLarge: Story = {
-  args: {
-    size: 'xl',
-    children: 'I\'m a Body XL',
-  },
-};
-
-// Different HTML elements
-export const AsSpan: Story = {
-  args: {
-    as: 'span',
-    children: 'This is body text rendered as a span element',
-  },
-};
-
-export const AsDiv: Story = {
-  args: {
-    as: 'div',
-    children: 'This is body text rendered as a div element',
-  },
-};
-
-// With custom styling
-export const WithCustomStyling: Story = {
-  args: {
-    children: 'This is body text with custom styling',
-    className: 'text-blue-600 underline',
-  },
-};
-
-// Paragraph example
-export const ParagraphExample: Story = {
-  render: () => (
-    <div className="max-w-2xl space-y-4">
-      <Body size="l">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-      </Body>
-      <Body size="m">
-        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      </Body>
-      <Body size="s">
-        Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </Body>
-    </div>
-  ),
-  parameters: {
-    docs: {
-      description: {
-        story: 'Example of body text used in paragraph format with different sizes.',
+    ),
+    parameters: {
+      docs: {
+        description: {
+          story: 'The specifications detail the typographic characteristics of each Body text variant, including the font family used, the font weight (regular), and the specific font size for each variant (XL, L, M, S, XS). These sizes range from 24px in Body-XL to 12px in Body-XS, ensuring proper visual hierarchy and consistency in the presentation of textual content.',
+        },
       },
     },
-  },
-};
+  };

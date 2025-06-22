@@ -1,40 +1,64 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Input } from './Input-Basic';
+import { Input } from '@/components/ui/Input/Input-Basic';
 
 const meta: Meta<typeof Input> = {
-  title: 'components/Input-Basic',
+  title: 'components/Input/Input',
   component: Input,
+  parameters: {
+    layout: 'centered',
+    docs: {
+      description: {
+        component:
+          'An Input is a user interface (UI) component designed for capturing data or information from the user.',
+      },
+    },
+  },
   tags: ['autodocs'],
+  argTypes: {
+    variant: {
+      control: { type: 'select' },
+      options: ['search', 'basic', 'dark'],
+      description: 'Tipo de input: search (con iconos), basic (simple) o dark (tema oscuro)',
+    },
+    onLeftIconClick: { action: 'left icon clicked' },
+    onRightIconClick: { action: 'right icon clicked' },
+  },
 };
 export default meta;
 
 type Story = StoryObj<typeof Input>;
 
-export const defaultInput: Story = {
+// === STORIES CON ID PARA ACCESIBILIDAD ===
+
+export const Text: Story = {
   args: {
-    label: 'InputText',
+    id: 'input-name',
+    label: 'Name*',
     type: 'text',
-    placeholder: 'Text Input',
+    placeholder: 'Your name',
   },
   parameters: {
     docs: {
       description: {
-        story: "Name.",
+        story:
+          'The "Name" Input is a specific instance of a text input component whose purpose is to capture the nominal identity of an entity, usually a person, but which could also refer to an organization, a product, etc.',
       },
     },
   },
 };
 
-export const inputNumber: Story = {
+export const Phone: Story = {
   args: {
-    label: 'InputNumber',
+    id: 'input-phone',
+    label: 'Phone*',
     type: 'number',
-    placeholder: 'Text input',
+    placeholder: 'Your phone',
   },
   parameters: {
     docs: {
       description: {
-        story: "Number.",
+        story:
+          'This input is used to perform searches by clicking the icons located on its left and right.',
       },
     },
   },
@@ -42,45 +66,60 @@ export const inputNumber: Story = {
 
 export const Email: Story = {
   args: {
-    label: 'Input',
+    id: 'input-email',
+    label: 'Email*',
     type: 'email',
-    placeholder: 'example@correo.com',
+    placeholder: 'example@email.com',
   },
   parameters: {
     docs: {
       description: {
-        story: "Email.",
+        story:
+          'An Email Input is a user interface (UI) component specifically designed for capturing email addresses.',
       },
     },
   },
 };
 
-export const WithError: Story = {
+export const Password: Story = {
   args: {
-    label: 'Name:',
-    type: 'text',
-    error: 'Campo obligatorio',
+    id: 'input-password',
+    label: 'Password:',
+    type: 'password',
+    placeholder: '•••••••',
   },
-};
-
-export const AllSizes: Story = {
-  render: () => (
-    <div className="flex flex-col gap-6 p-4">
-      {/* Inputs básicos */}
-      <div>
-        <h3 className="mb-3 text-lg font-semibold">Inputs básicos</h3>
-        <div className="flex items-end gap-4">
-          <Input label="text" type="text" placeholder="Text Input" />
-          <Input label="text" type="text" placeholder="Text Input" />
-          <Input label="text" type="text" placeholder="Text Input" />
-        </div>
-      </div>
-    </div>
-  ),
   parameters: {
     docs: {
       description: {
-        story: "Diferentes variaciones del componente Input disponibles.",
+        story:
+          'A Password Input is a user interface (UI) component specifically designed for entering sensitive information, such as passwords, security tokens, or any data that should remain hidden during typing.',
+      },
+    },
+  },
+};
+
+export const ErrorInput: Story = {
+  args: {
+    id: 'input-error',
+    label: 'Name:',
+    type: 'text',
+    error: 'Required field',
+  },
+};
+
+export const InputSearch: Story = {
+  args: {
+    id: 'input-icon-actions',
+    label: 'Search',
+    placeholder: 'Search...',
+    variant: 'search',
+    onLeftIconClick: () => alert('Left Icon Clicked'),
+    onRightIconClick: () => alert('Right Icon Clicked'),
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'This input is used to perform searches by clicking the icons located on its left and right.',
       },
     },
   },

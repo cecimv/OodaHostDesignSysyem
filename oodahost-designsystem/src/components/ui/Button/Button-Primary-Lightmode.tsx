@@ -31,7 +31,7 @@ export const ButtonPrimaryLightmode = React.forwardRef<HTMLButtonElement, Button
     const variantClasses = {
         primaryTextOnly: isPressed && variant === "primaryTextOnly"
             ? "bg-[#177D50] text-[#000000] focus:ring-[#E9FAF3] font-roboto"
-            : "bg-[#26D086] text-[#000000] focus:ring-[#E9FAF3] font-roboto",
+            : "bg-primarycolor-900 text-[#000000] focus:ring-[#E9FAF3] font-roboto",
         primaryLeftIcon: isPressed && variant === "primaryLeftIcon"
             ? "bg-[#177D50] text-[#04150D] focus:ring-[#E9FAF3] font-roboto"
             : "bg-[#26D086] text-[#04150D] focus:ring-[#E9FAF3] font-roboto",
@@ -67,6 +67,10 @@ export const ButtonPrimaryLightmode = React.forwardRef<HTMLButtonElement, Button
         }
         };
 
+        console.log('Variable test:', 
+          window.getComputedStyle(document.documentElement)
+            .getPropertyValue('--primary-950')
+        );
     return (
       <motion.button
         ref={ref}
