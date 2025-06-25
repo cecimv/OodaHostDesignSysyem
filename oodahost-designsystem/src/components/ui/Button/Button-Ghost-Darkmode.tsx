@@ -33,7 +33,7 @@ export const ButtonGhostDarkmode = React.forwardRef<HTMLButtonElement, ButtonPro
             : "bg-transparent text-[#FFFFFF] hover:bg-[#4B4B4B] focus:ring-[#E9FAF3]",
         primaryLeftIcon: isPressed && variant === "primaryLeftIcon"
             ? "bg-[#B3B3B3] text-[#000000] focus:ring-[#E9FAF3]"
-            : "bg-transparent text-[#FFFFFFF] hover:bg-[#4B4B4B] focus:ring-[#E9FAF3]",
+            : "bg-transparent text-[#FFFFFF] hover:bg-[#4B4B4B] focus:ring-[#E9FAF3]",
         primaryRightIcon: isPressed && variant === "primaryRightIcon"
             ? "bg-[#B3B3B3] text-[#000000] focus:ring-[#E9FAF3]"
             : "bg-transparent text-[#FFFFFF] hover:bg-[#4B4B4B] focus:ring-[#E9FAF3]",

@@ -17,7 +17,7 @@ const meta = {
     argTypes: {
         variant: {
             control: "select",
-            options: ["primaryTextOnly", "primaryLeftIcon", "primaryRightIcon"],
+            options: ["ghostTextOnly", "ghostLeftIcon", "ghostRightIcon"],
             description: "The visual style of the button",
             table: {
                 type: { summary: "string" },
@@ -79,7 +79,7 @@ export const ghostTextOnly: Story = {
 export const ghostLeftIcon: Story = {
     args: {
         children: "+ Text",
-        variant: "ghostTextOnly",
+        variant: "ghostLeftIcon",
         size: "md",
     },
     parameters: {
@@ -94,7 +94,7 @@ export const ghostLeftIcon: Story = {
 export const ghostRightIcon: Story = {
     args: {
         children: "Text +",
-        variant: "ghostTextOnly",
+        variant: "ghostRightIcon",
         size: "md",
     },
     parameters: {

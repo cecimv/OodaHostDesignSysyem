@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { Button } from "./Icon-Button-Lightmode";
+import { IconButtonLightmode } from "./Icon-Button-Lightmode";
 //import { Plus } from 'lucide-react';
 
 const meta = {
     title: "Components/Button/Icon-Button-Lightmode",
-    component: Button,
+    component: IconButtonLightmode,
     parameters: {
         layout: "centered",
         docs: {
@@ -56,7 +56,7 @@ const meta = {
             },
         },
     },
-} satisfies Meta<typeof Button>;
+} satisfies Meta<typeof IconButtonLightmode>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -116,24 +116,24 @@ export const AllSizes: Story = {
     <div className="flex flex-col gap-6">
         {/* Botones solo texto */}
         <div className="flex items-center gap-4">
-            <Button size="sm" variant="primaryIconButton">+</Button>
-            <Button size="md" variant="primaryIconButton">+</Button>
-            <Button size="lg" variant="primaryIconButton">+</Button>
+            <IconButtonLightmode size="sm" variant="primaryIconButton">+</IconButtonLightmode>
+            <IconButtonLightmode size="md" variant="primaryIconButton">+</IconButtonLightmode>
+            <IconButtonLightmode size="lg" variant="primaryIconButton">+</IconButtonLightmode>
         </div>
         
         {/* Botones con icono izquierdo */}
         <div className="flex items-center gap-4">
-            <Button size="sm" variant="outlineIconButton">+</Button>           
-            <Button size="md" variant="outlineIconButton">+</Button>
-            <Button size="lg" variant="outlineIconButton">+</Button>
+            <IconButtonLightmode size="sm" variant="outlineIconButton">+</IconButtonLightmode>           
+            <IconButtonLightmode size="md" variant="outlineIconButton">+</IconButtonLightmode>
+            <IconButtonLightmode size="lg" variant="outlineIconButton">+</IconButtonLightmode>
             
         </div>
         
         {/* Botones con icono derecho */}
         <div className="flex items-center gap-4">
-            <Button size="sm" variant="ghostIconButton">+</Button>
-            <Button size="md" variant="ghostIconButton">+</Button>
-            <Button size="lg" variant="ghostIconButton">+</Button>
+            <IconButtonLightmode size="sm" variant="ghostIconButton">+</IconButtonLightmode>
+            <IconButtonLightmode size="md" variant="ghostIconButton">+</IconButtonLightmode>
+            <IconButtonLightmode size="lg" variant="ghostIconButton">+</IconButtonLightmode>
         </div>
     </div> 
     ),
@@ -153,9 +153,9 @@ export const AllVariants: Story = {
     },
     render: () => (
     <div className="flex flex-wrap items-center gap-4">
-        <Button variant="primaryIconButton">+</Button>
-        <Button variant="outlineIconButton">+</Button>
-        <Button variant="ghostIconButton">+</Button>
+        <IconButtonLightmode variant="primaryIconButton">+</IconButtonLightmode>
+        <IconButtonLightmode variant="outlineIconButton">+</IconButtonLightmode>
+        <IconButtonLightmode variant="ghostIconButton">+</IconButtonLightmode>
     </div>
     ),
     parameters: {
@@ -173,9 +173,9 @@ export const DisabledStates: Story = {
     },
     render: () => (
     <div className="flex flex-wrap items-center gap-4">
-        <Button variant="primaryIconButton" disabled>+</Button>
-        <Button variant="outlineIconButton" disabled>+</Button>
-        <Button variant="ghostIconButton" disabled>+</Button>
+        <IconButtonLightmode variant="primaryIconButton" disabled>+</IconButtonLightmode>
+        <IconButtonLightmode variant="outlineIconButton" disabled>+</IconButtonLightmode>
+        <IconButtonLightmode variant="ghostIconButton" disabled>+</IconButtonLightmode>
     </div>
   ),
   parameters: {

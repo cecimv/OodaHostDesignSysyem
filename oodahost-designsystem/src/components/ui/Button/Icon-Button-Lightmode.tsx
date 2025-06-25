@@ -16,7 +16,7 @@ type ButtonProps = HTMLMotionProps<"button"> & {
   rightIcon?: React.ReactNode;
 };
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+export const IconButtonLightmode = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ children, leftIcon, rightIcon, className = "", disabled = false, size = "md", variant = "primaryIconButton", onClick, ...props }, ref) => {
     const [isPressed, setIsPressed] = useState(false);
     const baseClasses = "inline-flex items-center justify-center font-medium transition-all duration-200 ease-in-out rounded-full";
@@ -97,4 +97,4 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   }
 );
 
-Button.displayName = "Button";
+IconButtonLightmode.displayName = "IconButtonLightmode";

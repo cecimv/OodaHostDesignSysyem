@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Header } from './Header'; // Asegúrate de que la ruta sea correcta
 
 const meta: Meta<typeof Header> = {
-  title: 'components/Header/NavigationBar',
+  title: 'Example/Header/NavigationBar',
   component: Header,
   parameters: {
     layout: 'fullscreen', // Para que el header ocupe todo el ancho disponible

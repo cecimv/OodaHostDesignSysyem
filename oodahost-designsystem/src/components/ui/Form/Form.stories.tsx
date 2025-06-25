@@ -3,7 +3,7 @@ import { FormSignUp } from './Form';
 //import { FormContactUs } from './Form';
 
 const meta: Meta<typeof FormSignUp> = {
-  title: 'components/Form/FormValidation',
+  title: 'Examples/Form/FormValidation',
   component: FormSignUp,
   parameters: {
     layout: 'centered',

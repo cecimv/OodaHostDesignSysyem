@@ -1,6 +1,5 @@
 import '../src/index.css'
 import '../src/styles/main.css'
-import '../src/styles/tokens.css';
 import type { Preview } from '@storybook/react-vite'
 //import '../src/styles/Tailwind.css';
 

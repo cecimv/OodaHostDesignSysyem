@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ButtonOutlineLightmode } from "./Button-Outline-Lightmode";
+import { ButtonLightmode } from "./Button-Lightmode";
 import { Plus } from 'lucide-react';
 
 const meta = {
     title: "Components/Button/Button-Outline-Lightmode",
-    component: ButtonOutlineLightmode,
+    component: ButtonLightmode,
     parameters: {
         layout: "centered",
         docs: {
@@ -17,7 +17,7 @@ const meta = {
     argTypes: {
         variant: {
             control: "select",
-            options: ["primaryTextOnly", "primaryLeftIcon", "primaryRightIcon"],
+            options: ["outlineTextOnly", "outlineLeftIcon", "outlineRightIcon"],
             description: "The visual style of the button",
             table: {
                 type: { summary: "string" },
@@ -56,15 +56,15 @@ const meta = {
             },
         },
     },
-} satisfies Meta<typeof ButtonOutlineLightmode>;
+} satisfies Meta<typeof ButtonLightmode>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const primaryTextOnly: Story = {
+export const outlineTextOnly: Story = {
     args: {
         children: "Text",
-        variant: "primaryTextOnly",
+        variant: "outlineTextOnly",
         size: "md",
     },
     parameters: {
@@ -76,10 +76,10 @@ export const primaryTextOnly: Story = {
     },
 };
 
-export const primaryLeftIcon: Story = {
+export const outlineLeftIcon: Story = {
     args: {
         children: "+ Text",
-        variant: "primaryTextOnly",
+        variant: "outlineLeftIcon",
         size: "md",
     },
     parameters: {
@@ -91,10 +91,10 @@ export const primaryLeftIcon: Story = {
     },
 };
 
-export const primaryRightIcon: Story = {
+export const outlineRightIcon: Story = {
     args: {
         children: "Text +",
-        variant: "primaryTextOnly",
+        variant: "outlineRightIcon",
         size: "md",
     },
     parameters: {
@@ -116,29 +116,29 @@ export const AllSizes: Story = {
     <div className="flex flex-col gap-6">
         {/* Botones solo texto */}
         <div className="flex items-center gap-4">
-            <ButtonOutlineLightmode size="sm" variant="primaryTextOnly">
+            <ButtonLightmode size="sm" variant="outlineTextOnly">
             Text
-            </ButtonOutlineLightmode>
-            <ButtonOutlineLightmode size="md" variant="primaryTextOnly">
+            </ButtonLightmode>
+            <ButtonLightmode size="md" variant="outlineTextOnly">
             Text
-            </ButtonOutlineLightmode>
-            <ButtonOutlineLightmode size="lg" variant="primaryTextOnly">
+            </ButtonLightmode>
+            <ButtonLightmode size="lg" variant="outlineTextOnly">
             Text
-            </ButtonOutlineLightmode>
+            </ButtonLightmode>
         </div>
         
         {/* Botones con icono izquierdo */}
         <div className="flex items-center gap-4">
-            <ButtonOutlineLightmode size="sm" variant="primaryLeftIcon" leftIcon={<Plus className="w-4 h-4" />}>Text</ButtonOutlineLightmode>
-            <ButtonOutlineLightmode size="md" variant="primaryLeftIcon" leftIcon={<Plus className="w-4 h-4" />}>Text</ButtonOutlineLightmode>
-            <ButtonOutlineLightmode size="lg" variant="primaryLeftIcon" leftIcon={<Plus className="w-4 h-4" />}>Text</ButtonOutlineLightmode>
+            <ButtonLightmode size="sm" variant="outlineLeftIcon" leftIcon={<Plus className="w-4 h-4" />}>Text</ButtonLightmode>
+            <ButtonLightmode size="md" variant="outlineLeftIcon" leftIcon={<Plus className="w-4 h-4" />}>Text</ButtonLightmode>
+            <ButtonLightmode size="lg" variant="outlineLeftIcon" leftIcon={<Plus className="w-4 h-4" />}>Text</ButtonLightmode>
         </div>
         
         {/* Botones con icono derecho */}
         <div className="flex items-center gap-4">
-            <ButtonOutlineLightmode size="sm" variant="primaryRightIcon" rightIcon={<Plus className="w-4 h-4" />}>Text</ButtonOutlineLightmode>
-            <ButtonOutlineLightmode size="md" variant="primaryRightIcon" rightIcon={<Plus className="w-4 h-4" />}>Text</ButtonOutlineLightmode>
-            <ButtonOutlineLightmode size="lg" variant="primaryRightIcon" rightIcon={<Plus className="w-4 h-4" />}>Text</ButtonOutlineLightmode>
+            <ButtonLightmode size="sm" variant="outlineRightIcon" rightIcon={<Plus className="w-4 h-4" />}>Text</ButtonLightmode>
+            <ButtonLightmode size="md" variant="outlineRightIcon" rightIcon={<Plus className="w-4 h-4" />}>Text</ButtonLightmode>
+            <ButtonLightmode size="lg" variant="outlineRightIcon" rightIcon={<Plus className="w-4 h-4" />}>Text</ButtonLightmode>
         </div>
     </div> 
     ),
@@ -158,9 +158,9 @@ export const AllVariants: Story = {
     },
     render: () => (
     <div className="flex flex-wrap items-center gap-4">
-        <ButtonOutlineLightmode variant="primaryTextOnly">Text</ButtonOutlineLightmode>
-        <ButtonOutlineLightmode variant="primaryLeftIcon" leftIcon={<Plus className="w-4 h-4" />}>Text</ButtonOutlineLightmode>
-        <ButtonOutlineLightmode variant="primaryRightIcon" rightIcon={<Plus className="w-4 h-4" />}>Text</ButtonOutlineLightmode>
+        <ButtonLightmode variant="outlineTextOnly">Text</ButtonLightmode>
+        <ButtonLightmode variant="outlineLeftIcon" leftIcon={<Plus className="w-4 h-4" />}>Text</ButtonLightmode>
+        <ButtonLightmode variant="outlineRightIcon" rightIcon={<Plus className="w-4 h-4" />}>Text</ButtonLightmode>
     </div>
     ),
     parameters: {
@@ -178,9 +178,9 @@ export const DisabledStates: Story = {
     },
     render: () => (
     <div className="flex flex-wrap items-center gap-4">
-        <ButtonOutlineLightmode variant="primaryTextOnly" disabled>Text</ButtonOutlineLightmode>
-        <ButtonOutlineLightmode variant="primaryLeftIcon" leftIcon={<Plus className="w-4 h-4" />} disabled>Text</ButtonOutlineLightmode>
-        <ButtonOutlineLightmode variant="primaryRightIcon" rightIcon={<Plus className="w-4 h-4" />} disabled>Text</ButtonOutlineLightmode>
+        <ButtonLightmode variant="outlineTextOnly" disabled>Text</ButtonLightmode>
+        <ButtonLightmode variant="outlineLeftIcon" leftIcon={<Plus className="w-4 h-4" />} disabled>Text</ButtonLightmode>
+        <ButtonLightmode variant="outlineRightIcon" rightIcon={<Plus className="w-4 h-4" />} disabled>Text</ButtonLightmode>
     </div>
   ),
   parameters: {

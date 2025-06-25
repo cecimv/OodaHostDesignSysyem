@@ -14,10 +14,62 @@ const meta: Meta<typeof TextArea> = {
   },
   tags: ['autodocs'],
   argTypes: {
-    onChange: { action: 'changed' },
-    label: { description: 'Label for the textarea' },
-    error: { description: 'Error message shown below the textarea' },
-    hideLabel: { control: 'boolean', description: 'Hides the visible label (accessible via aria-label)' },
+    id: {
+      control: 'text',
+      description: 'Unique identifier for the textarea.',
+      defaultValue: 'textarea-text',
+    },
+    label: {
+      control: 'text',
+      description: 'Label for the textarea.',
+    },
+    placeholder: {
+      control: 'text',
+      description: 'Text shown inside the textarea when empty.',
+      defaultValue: 'Textarea',
+    },
+    rows: {
+      control: 'number',
+      description: 'Number of visible rows in the textarea.',
+      defaultValue: 4,
+    },
+    error: {
+      control: 'text',
+      description: 'Error message shown below the textarea.',
+    },
+    hideLabel: {
+      control: 'boolean',
+      description: 'Hides the visible label but keeps it accessible via aria-label.',
+      defaultValue: false,
+    },
+    maxLength: {
+      control: 'number',
+      description: 'Maximum number of allowed characters.',
+      defaultValue: 1000,
+    },
+    showCharCount: {
+      control: 'boolean',
+      description: 'Shows the character count below the textarea.',
+      defaultValue: true,
+    },
+    onChange: {
+      action: 'onChange',
+      description: 'Function called when the textarea content changes.',
+    },
+    value: {
+      control: 'text',
+      description: 'Controlled value of the textarea.',
+    },
+    defaultValue: {
+      control: 'text',
+      description: 'Initial uncontrolled value of the textarea.',
+      defaultValue: '',
+    },
+    disabled: {
+      control: 'boolean',
+      description: 'Disables the textarea, preventing user interaction.',
+      defaultValue: false,
+    },
   },
 };
 export default meta;
@@ -37,6 +89,7 @@ export const Textarea: Story = {
         story: 'Basic example of a TextArea used to capture a user message.',
       },
     },
+    
   },
 };
 
@@ -67,4 +120,12 @@ export const Disabled: Story = {
         showCharCount: true,
         disabled: true,
     },
+    parameters: {
+      docs: {
+        description: {
+          story: 'The disabled state in a TextArea is used to indicate that the field is temporarily unavailable for user interaction.',
+        },
+      },
+    },
 };
+

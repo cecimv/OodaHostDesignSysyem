@@ -1,4 +1,6 @@
+// components/ui/Input/Input-Basic.tsx
 import React, { useState } from 'react';
+import { Search, X, ChevronRight } from 'lucide-react';
 
 type InputProps = {
   label: string;
@@ -60,9 +62,7 @@ export const Input: React.FC<InputProps> = ({
     if (isBasicVariant) {
       return `${baseClasses} px-4 rounded-md focus:ring-white focus:border-[#177D50] hover:bg-neutral-100 hover:border-2 hover:border-[#26D086] ${
         isPressed ? 'bg-green-100' : 'bg-white'
-      } ${error ? 'border-red-500 focus:border-red-500' : 'border-neutral-300'} text-neutral-700 ${
-        props.type === 'number' ? 'input-hide-spinner' : ''
-      }`;
+      } ${error ? 'border-red-500 focus:border-red-500' : 'border-neutral-300'} text-neutral-700`;
     }
 
     const paddingLeft = 'pl-10';
@@ -70,9 +70,7 @@ export const Input: React.FC<InputProps> = ({
 
     return `${baseClasses} ${paddingLeft} ${paddingRight} rounded-md focus:ring-white focus:border-[#177D50] hover:bg-neutral-100 hover:border-2 hover:border-[#26D086] ${
       isPressed ? 'bg-green-100' : 'bg-white'
-    } ${error ? 'border-red-500 focus:border-red-500' : 'border-neutral-300'} text-neutral-700 ${
-      props.type === 'number' ? 'input-hide-spinner' : ''
-    }`;
+    } ${error ? 'border-red-500 focus:border-red-500' : 'border-neutral-300'} text-neutral-700`;
   };
 
   const sharedProps = {
@@ -94,61 +92,44 @@ export const Input: React.FC<InputProps> = ({
       )}
 
       <div className="relative">
+        {/* Icono de búsqueda (izquierda) */}
         {isSearchVariant && (
           <div
             className="absolute left-3 top-1/2 -translate-y-1/2 cursor-pointer z-10"
             onClick={onLeftIconClick}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="size-5 text-gray-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 21l-4.35-4.35M17 11a6 6 0 11-12 0 6 6 0 0112 0z"
-              />
-            </svg>
+            <Search 
+              className="size-5 text-gray-400 hover:text-gray-600 transition-colors" 
+              strokeWidth={2}
+            />
           </div>
         )}
 
         <input {...sharedProps} />
 
+        {/* Botón de limpiar (X) */}
         {isSearchVariant && hasValue && showClearButton && isTextType && (
           <div
             className="absolute right-10 top-1/2 -translate-y-1/2 cursor-pointer z-10 bg-gray-400 hover:bg-gray-500 rounded-full p-1.5 transition-colors"
             onClick={handleClear}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="size-3 text-white"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M6 18L18 6M6 6l12 12" />
-            </svg>
+            <X 
+              className="size-3 text-white" 
+              strokeWidth={2.5}
+            />
           </div>
         )}
 
+        {/* Icono de chevron (derecha) */}
         {isSearchVariant && (
           <div
             className="absolute right-3 top-1/2 -translate-y-1/2 cursor-pointer z-10"
             onClick={onRightIconClick}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="size-5 text-gray-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+            <ChevronRight 
+              className="size-5 text-gray-400 hover:text-gray-600 transition-colors" 
+              strokeWidth={2}
+            />
           </div>
         )}
       </div>

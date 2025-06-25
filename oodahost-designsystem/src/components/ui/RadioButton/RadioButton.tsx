@@ -1,54 +1,60 @@
-import React from "react";
+import React, { useId } from "react";
 
-type RadioButtonProps = {
-  label: string;
+interface RadioButtonProps {
   value: string;
-  name: string;
-  checked?: boolean;
-  onChange?: (value: string) => void;
-};
+  label: string;
+  checked: boolean;
+  onChange: (value: string) => void;
+  disabled?: boolean;
+  name?: string;
+}
 
 export const RadioButton: React.FC<RadioButtonProps> = ({
-  label,
   value,
-  name,
+  label,
   checked,
   onChange,
+  disabled = false,
+  name,
 }) => {
-  const id = `${name}-${value}`;
+  const id = useId();
+  const radioName = name || `radio-${id}`;
+  const inputId = `radio-${radioName}-${value}`;
 
   return (
-    <div className="flex items-center gap-2">
+    <div
+      className={`inline-flex items-center gap-2 ${
+        disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"
+      }`}
+    >
       <input
         type="radio"
-        id={id}
-        name={name}
+        id={inputId}
+        className="sr-only"
+        name={radioName}
         value={value}
         checked={checked}
-        onChange={() => onChange?.(value)}
-        className="peer hidden"
+        disabled={disabled}
+        onChange={() => onChange(value)}
       />
-      <label
-        htmlFor={id}
-        className={`
-          w-5 aspect-square rounded-full border-2
-          border-gray-400 bg-white
-          flex items-center justify-center
-          cursor-pointer transition-colors duration-200
-
-          hover:border-[#26D086]
-
-          peer-checked:border-[#26D086]
-          peer-checked:bg-[#26D086]
-        `}
+      <label htmlFor={inputId} className="inline-flex items-center gap-2">
+      <span
+        className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-colors hover:border-[#177D50]
+          ${
+            disabled
+              ? "bg-[#4B4B4B] border-[#4B4B4B] hover:border-[#4B4B4B]"
+              : checked
+              ? "border-green-500"
+              : "border-gray-400"
+          }`}
       >
-        <span className="w-2 h-2 bg-white rounded-full" />
-      </label>
-      <label htmlFor={id} className="cursor-pointer text-sm">
-        {label}
+        {checked && !disabled && (
+          <span className="w-2.5 h-2.5 bg-green-500 rounded-full" />
+        )}
+      </span>
+
+        <span className="text-sm">{label}</span>
       </label>
     </div>
   );
 };
-
-export default RadioButton;

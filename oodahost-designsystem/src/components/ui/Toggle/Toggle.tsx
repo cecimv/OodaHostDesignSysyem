@@ -1,31 +1,65 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-const Toggle = () => {
-  const [isOn, setIsOn] = useState(false);
+interface ToggleProps {
+  checked: boolean;
+  onChange: (checked: boolean) => void;
+  disabled?: boolean;
+  label?: string;
+  showText?: boolean;
+}
 
-  const toggleSwitch = () => {
-    setIsOn(!isOn);
-  };
+export const Toggle: React.FC<ToggleProps> = ({
+  checked,
+  onChange,
+  disabled = false,
+  label,
+  showText = false,
+}) => {
+  const widthClass = showText ? 'w-14' : 'w-11';
+  const text = checked ? 'ON' : 'OFF';
+  const translateClass = checked
+    ? showText
+      ? 'translate-x-8'
+      : 'translate-x-5'
+    : 'translate-x-0';
 
   return (
-    <div className="flex items-center">
+    <label className="flex items-center gap-2 cursor-pointer">
+      {label && <span className="text-sm">{label}</span>}
       <button
-        onClick={toggleSwitch}
-        className={`relative inline-flex items-center h-6 rounded-full w-11 transition-colors duration-200 ease-in-out ${
-          isOn ? 'bg-blue-600' : 'bg-gray-300'
-        }`}
+        role="switch"
+        aria-checked={checked}
+        disabled={disabled}
+        onClick={() => !disabled && onChange(!checked)}
+        className={`relative ${widthClass} h-6 rounded-full transition-colors duration-300 flex items-center px-1 text-xs font-medium
+          ${checked ? 'bg-[#25D086]' : 'bg-gray-300'}
+          ${disabled ? 'opacity-50 cursor-not-allowed' : 'text-white'}
+          `}
       >
+        {showText && (
+          <>
+            <span
+              className={`
+                absolute left-2 text-white text-xs font-semibold z-10 transition-opacity duration-200
+                ${checked ? 'opacity-100' : 'opacity-0'}
+              `}
+            >
+              ON
+            </span>
+            <span
+              className={`
+                absolute right-2 text-white text-xs font-semibold z-10 transition-opacity duration-200
+                ${!checked ? 'opacity-100' : 'opacity-0'}
+              `}
+            >
+              OFF
+            </span>
+          </>
+        )}
         <span
-          className={`inline-block w-4 h-4 transform bg-white rounded-full transition-transform duration-200 ease-in-out ${
-            isOn ? 'translate-x-6' : 'translate-x-1'
-          }`}
+          className={`absolute top-0.5 left-0.5 w-5 h-5 bg-white rounded-full transition-transform duration-300 ${translateClass}`}
         />
       </button>
-      <span className="ml-3 text-sm font-medium text-gray-900">
-        {isOn ? 'Activado' : 'Desactivado'}
-      </span>
-    </div>
+    </label>
   );
 };
-
-export default Toggle;

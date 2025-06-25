@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { ButtonPrimaryLightmode } from "./Button-Primary-Lightmode";
+import { ButtonLightmode } from "@/components/ui/Button/Button-Lightmode";
 import { Plus } from 'lucide-react';
 
 const meta = {
     title: "Components/Button/Button-Primary-Lightmode",
-    component: ButtonPrimaryLightmode,
+    component: ButtonLightmode,
     parameters: {
         layout: "centered",
         docs: {
             description: {
-                component: "A customizable button component built with Tailwind CSS v4 and Framer Motion animations. Features hover animations, focus states, and dark mode support.",
+                component: "A customizable button component built with Tailwind CSS v4 and Framer Motion animations. Features hover animations, focus states, and intelligent icon sizing.",
             },
         },
     },
@@ -21,7 +21,7 @@ const meta = {
             description: "The visual style of the button",
             table: {
                 type: { summary: "string" },
-                defaultValue: { summary: "primary" },
+                defaultValue: { summary: "primaryTextOnly" },
             },
         },
         size: {
@@ -55,8 +55,20 @@ const meta = {
                 type: { summary: "string" },
             },
         },
+        leftIcon: {
+            description: "Icon element to display on the left side",
+            table: {
+                type: { summary: "React.ReactNode" },
+            },
+        },
+        rightIcon: {
+            description: "Icon element to display on the right side",
+            table: {
+                type: { summary: "React.ReactNode" },
+            },
+        },
     },
-} satisfies Meta<typeof ButtonPrimaryLightmode>;
+} satisfies Meta<typeof ButtonLightmode>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -78,9 +90,10 @@ export const primaryTextOnly: Story = {
 
 export const primaryLeftIcon: Story = {
     args: {
-        children: "+ Text",
+        children: "Text",
         variant: "primaryLeftIcon",
         size: "md",
+        leftIcon: <Plus />,
     },
     parameters: {
         docs: {
@@ -93,9 +106,10 @@ export const primaryLeftIcon: Story = {
 
 export const primaryRightIcon: Story = {
     args: {
-        children: "Text +",
+        children: "Text",
         variant: "primaryRightIcon",
         size: "md",
+        rightIcon: <Plus />,
     },
     parameters: {
         docs: {
@@ -106,47 +120,57 @@ export const primaryRightIcon: Story = {
     },
 };
 
-
 // Nuevas stories para mostrar las mejoras
 export const AllSizes: Story = {
     args: {
         children: "Button",
     },
     render: () => (
-    <div className="flex flex-col gap-6">
-        {/* Botones solo texto */}
-        <div className="flex items-center gap-4">
-            <ButtonPrimaryLightmode size="sm" variant="primaryTextOnly">
-            Text
-            </ButtonPrimaryLightmode>
-            <ButtonPrimaryLightmode size="md" variant="primaryTextOnly">
-            Text
-            </ButtonPrimaryLightmode>
-            <ButtonPrimaryLightmode size="lg" variant="primaryTextOnly">
-            Text
-            </ButtonPrimaryLightmode>
-        </div>
-        
-        {/* Botones con icono izquierdo */}
-        <div className="flex items-center gap-4">
-            <ButtonPrimaryLightmode size="sm" variant="primaryLeftIcon" leftIcon={<Plus className="w-4 h-4" />}>Text</ButtonPrimaryLightmode>
-            <ButtonPrimaryLightmode size="md" variant="primaryLeftIcon" leftIcon={<Plus className="w-4 h-4" />}>Text</ButtonPrimaryLightmode>
-            <ButtonPrimaryLightmode size="lg" variant="primaryLeftIcon" leftIcon={<Plus className="w-4 h-4" />}>Text</ButtonPrimaryLightmode>
-        </div>
-        
-        {/* Botones con icono derecho */}
-        <div className="flex items-center gap-4">
-            <ButtonPrimaryLightmode size="sm" variant="primaryRightIcon" rightIcon={<Plus className="w-4 h-4" />}>Text</ButtonPrimaryLightmode>
-            <ButtonPrimaryLightmode size="md" variant="primaryRightIcon" rightIcon={<Plus className="w-4 h-4" />}>Text</ButtonPrimaryLightmode>
-            <ButtonPrimaryLightmode size="lg" variant="primaryRightIcon" rightIcon={<Plus className="w-4 h-4" />}>Text</ButtonPrimaryLightmode>
-        </div>
-    </div> 
+        <div className="flex flex-col gap-6">
+            {/* Botones solo texto */}
+            <div className="flex items-center gap-4">
+                <ButtonLightmode size="sm" variant="primaryTextOnly">
+                    Text
+                </ButtonLightmode>
+                <ButtonLightmode size="md" variant="primaryTextOnly">
+                    Text
+                </ButtonLightmode>
+                <ButtonLightmode size="lg" variant="primaryTextOnly">
+                    Text
+                </ButtonLightmode>
+            </div>
+            
+            {/* Botones con icono izquierdo - los iconos se escalan automáticamente */}
+            <div className="flex items-center gap-4">
+                <ButtonLightmode size="sm" variant="primaryLeftIcon" leftIcon={<Plus />}>
+                    Text
+                </ButtonLightmode>
+                <ButtonLightmode size="md" variant="primaryLeftIcon" leftIcon={<Plus />}>
+                    Text
+                </ButtonLightmode>
+                <ButtonLightmode size="lg" variant="primaryLeftIcon" leftIcon={<Plus />}>
+                    Text
+                </ButtonLightmode>
+            </div>
+            
+            {/* Botones con icono derecho - los iconos se escalan automáticamente */}
+            <div className="flex items-center gap-4">
+                <ButtonLightmode size="sm" variant="primaryRightIcon" rightIcon={<Plus />}>
+                    Text
+                </ButtonLightmode>
+                <ButtonLightmode size="md" variant="primaryRightIcon" rightIcon={<Plus />}>
+                    Text
+                </ButtonLightmode>
+                <ButtonLightmode size="lg" variant="primaryRightIcon" rightIcon={<Plus />}>
+                    Text
+                </ButtonLightmode>
+            </div>
+        </div> 
     ),
-
     parameters: {
         docs: {
             description: {
-                story: "Demonstration of all available button sizes.",
+                story: "Demonstration of all available button sizes. Notice how the icons automatically scale with the button size.",
             },
         },
     },
@@ -157,16 +181,16 @@ export const AllVariants: Story = {
         children: "Button",
     },
     render: () => (
-    <div className="flex flex-wrap items-center gap-4">
-        <ButtonPrimaryLightmode variant="primaryTextOnly">Text</ButtonPrimaryLightmode>
-        <ButtonPrimaryLightmode variant="primaryLeftIcon" leftIcon={<Plus className="w-4 h-4" />}>Text</ButtonPrimaryLightmode>
-        <ButtonPrimaryLightmode variant="primaryRightIcon" rightIcon={<Plus className="w-4 h-4" />}>Text</ButtonPrimaryLightmode>
-    </div>
+        <div className="flex flex-wrap items-center gap-4">
+            <ButtonLightmode variant="primaryTextOnly">Text</ButtonLightmode>
+            <ButtonLightmode variant="primaryLeftIcon" leftIcon={<Plus />}>Text</ButtonLightmode>
+            <ButtonLightmode variant="primaryRightIcon" rightIcon={<Plus />}>Text</ButtonLightmode>
+        </div>
     ),
     parameters: {
         docs: {
             description: {
-                story: "Demonstration of all available button variants.",
+                story: "Demonstration of all available primary button variants.",
             },
         },
     },
@@ -177,17 +201,56 @@ export const DisabledStates: Story = {
         children: "Button",
     },
     render: () => (
-    <div className="flex flex-wrap items-center gap-4">
-        <ButtonPrimaryLightmode variant="primaryTextOnly" disabled>Text</ButtonPrimaryLightmode>
-        <ButtonPrimaryLightmode variant="primaryLeftIcon" leftIcon={<Plus className="w-4 h-4" />} disabled>Text</ButtonPrimaryLightmode>
-        <ButtonPrimaryLightmode variant="primaryRightIcon" rightIcon={<Plus className="w-4 h-4" />} disabled>Text</ButtonPrimaryLightmode>
-    </div>
-  ),
-  parameters: {
-    docs: {
-      description: {
-        story: "Demonstration of disabled states for all button variants.",
-      },
+        <div className="flex flex-wrap items-center gap-4">
+            <ButtonLightmode variant="primaryTextOnly" disabled>Text</ButtonLightmode>
+            <ButtonLightmode variant="primaryLeftIcon" leftIcon={<Plus />} disabled>Text</ButtonLightmode>
+            <ButtonLightmode variant="primaryRightIcon" rightIcon={<Plus />} disabled>Text</ButtonLightmode>
+        </div>
+    ),
+    parameters: {
+        docs: {
+            description: {
+                story: "Demonstration of disabled states for all primary button variants.",
+            },
+        },
     },
-  },
+};
+
+// Nueva historia para mostrar botones solo con iconos
+export const IconOnly: Story = {
+    args: {
+        children: "Button",
+    },
+    render: () => (
+        <div className="flex flex-wrap items-center gap-4">
+            <ButtonLightmode 
+                variant="primaryLeftIcon" 
+                leftIcon={<Plus />}
+                className="!px-3"
+                title="Add item"
+                size="sm"
+            > </ButtonLightmode>
+            <ButtonLightmode 
+                variant="primaryLeftIcon" 
+                leftIcon={<Plus />}
+                className="!px-3"
+                title="Add item"
+                size="md"
+                > </ButtonLightmode>
+            <ButtonLightmode 
+                variant="primaryLeftIcon" 
+                leftIcon={<Plus />}
+                className="!px-3"
+                title="Add item"
+                size="lg"
+            > </ButtonLightmode>
+        </div>
+    ),
+    parameters: {
+        docs: {
+            description: {
+                story: "Primary buttons with only icons, useful for compact interfaces. Remember to include a title attribute for accessibility.",
+            },
+        },
+    },
 };
