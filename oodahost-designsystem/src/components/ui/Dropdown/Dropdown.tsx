@@ -1,5 +1,7 @@
 // Dropdown.tsx
-import React, { useState } from "react";
+import * as React from 'react';
+import { useState } from 'react';
+
 import { Ban } from "lucide-react";
 
 export type Variant = "onlyText" | "leftIcon" | "rightIcon" | "leftRightIcon" | "avatarleft";

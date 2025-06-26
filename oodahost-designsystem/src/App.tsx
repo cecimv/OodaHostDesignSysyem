@@ -1,37 +1,21 @@
-// App.tsx
-import React, { useState } from 'react';
-import { ColorPalette, Color } from '@/components/ui/Colors/Colors';
+// Por ejemplo, en App.tsx o cualquier otro componente:
 
-const colors: Color[] = [
-  { name: 'Rojo', value: '#FF0000' },
-  { name: 'Verde', value: '#00FF00' },
-  { name: 'Azul', value: '#0000FF' },
-];
+import React from 'react';
+import "/src/index.css";
+import { ButtonLightmode } from '@/components/ui/Button/Button-Lightmode'; // Ajusta la ruta correcta
 
-export const App: React.FC = () => {
-  const [selectedColor, setSelectedColor] = useState<string | null>(null);
-
-  const handleColorSelect = (color: Color) => {
-    setSelectedColor(color.value);
-    console.log('Color seleccionado:', color);
-  };
-
+export default function App() {
   return (
-    <div>
-      <h1>Selector de colores</h1>
-      <ColorPalette
-        colors={colors}
-        size="medium"
-        shape="circle"
-        showLabels={true}
-        selectedColor={selectedColor}
-        onColorSelect={handleColorSelect}
-      />
-      <div className="text-greencolor bg-neutralcolors-100 p-4 rounded-xl">
-  ¡Colores personalizados funcionando! ✅
-</div>
-</div>
+    <div className="p-8">
+      <h1 className="mb-4 text-2xl font-bold bg-danger-500">Ejemplo de botón</h1>
+      <ButtonLightmode
+        size="md"
+        variant="primaryLeftIcon"
+        leftIcon={<span> </span>} // Puedes poner cualquier ícono o componente aquí
+        onClick={() => alert('¡Botón presionado!')}
+      >
+        Presióname
+      </ButtonLightmode>
+    </div>
   );
-};
-
-export default App;
+}

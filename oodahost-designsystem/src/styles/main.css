@@ -1,29 +1,87 @@
 /* Importa primero tokens para que estén disponibles al compilar Tailwind */
-@import 'src/styles/tokens.css';
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
-/* Importa Tailwind */
-@import "tailwindcss";
-
-/* Aquí van variables de theming con formatos okLCH o especiales */
 :root {
-  /* Tus variables okLCH u otras */
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  /* etc */
+  /* Colores base */
+  --black: #000000;
+  --white: #FFFFFF;
+  --deep-black: #111110;
+  --dark-gray: #191919;
+  --medium-gray: #333333;
+  --light-gray: #D6D6D6
+  --white-bone: #F5F4F2;
+  --green: #26D086;
+  --green-dark: #3da882;
+
+  /* Neutrals */
+  --neutral-950: #1E1E1E;
+  --neutral-900: #2D2D2D;
+  --neutral-850: #3C3C3C;
+  --neutral-800: #4B4B4B;
+  --neutral-700: #696969;
+  --neutral-600: #868686;
+  --neutral-500: #A4A4A4;
+  --neutral-400: #B3B3B3;
+  --neutral-300: #C1C1C1;
+  --neutral-200: #D0D0D0;
+  --neutral-150: #DFDFDF;
+  --neutral-100: #F5F5F5;
+  --neutral-050: #FAFAFA;
+
+  /* Primary colors */
+  --primary-950: #04150D;
+  --primary-900: #082A1B;
+  --primary-850: #0B3E28;
+  --primary-800: #0F5336;
+  --primary-700: #0F5336;
+  --primary-600: #177D50;
+  --primary-500: #1EA66B;
+  --primary-400: #26D086;
+  --primary-300: #51D99E;
+  --primary-200: #7DE3B6;
+  --primary-150: #A8ECCF;
+  --primary-100: #D4F6E7;
+  --primary-050: #E9FAF3;
+
+  /* Danger colors - CORREGIDOS */
+  --danger-700: #EC2D30;
+  --danger-600: #F64C4C;
+  --danger-500: #EB6F70;
+  --danger-400: #F49898;
+  --danger-300: #FFCCD2;
+  --danger-200: #FFEBEE;
+  --danger-100: #FEF2F2;
+  --danger-050: #FFFBFB;
+
+  /* Warning colors */
+  --warning-700: #FE9B0E;
+  --warning-600: #FFAD0D;
+  --warning-500: #FFC62B;
+  --warning-400: #FFDD82;
+  --warning-300: #FFEAB3;
+  --warning-200: #FFF7E1;
+  --warning-100: #FFF9EE;
+  --warning-050: #FFFDFA;
+
+  /* Success colors */
+  --success-700: #0C9D61;
+  --success-600: #47B881;
+  --success-500: #6BC497;
+  --success-400: #97D4B4;
+  --success-300: #C0E5D1;
+  --success-200: #E5F5EC;
+  --success-100: #F2FAF6;
+  --success-050: #FBFEFC;
+
+  /* Info colors */
+  --info-700: #3A70E2;
+  --info-600: #3B82F6;
+  --info-500: #4BA1FF;
+  --info-400: #93C8FF;
+  --info-300: #BDDDFF;
+  --info-200: #E4F2FF;
+  --info-100: #F1F8FF;
+  --info-050: #F8FCFF;
 }
 
-/* Variables y estilos para modo oscuro */
-.dark {
-  --background: oklch(0.129 0.042 264.695);
-  /* etc */
-}
-
-/* Tus keyframes, animaciones, estilos base */
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
+@import "tailwindcss";

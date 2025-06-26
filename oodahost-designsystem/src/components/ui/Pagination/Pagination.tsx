@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from "react";
+
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 export interface PaginationProps {

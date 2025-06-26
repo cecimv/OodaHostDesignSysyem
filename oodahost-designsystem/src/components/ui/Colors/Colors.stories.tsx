@@ -9,7 +9,7 @@ const blackwhiteColors: Color[] = [
 
 const neutralColors: Color[] = [
     { name: 'Neutral 9.5', value: 'var(--neutral-950)'},
-    { name: 'Neutral 9', value: 'var(--neutral-900)'},
+    { name: 'Neutral 9', value: 'var(--neutral-900'},
     { name: 'Neutral 8.5', value: 'var(--neutral-850)'},
     { name: 'Neutral 8', value: 'var(--neutral-800)'},
     { name: 'Neutral 7', value: 'var(--neutral-700)'},

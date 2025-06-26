@@ -92,7 +92,7 @@ export const Secondary: Story = {
 
 export const Outline: Story = {
   args: {
-    children: "Outline Button",
+    children: "Outline Button this",
     variant: "outline",
     size: "md",
   },

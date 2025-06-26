@@ -51,7 +51,7 @@ export const ColorPalette: React.FC<ColorPaletteProps> = ({
                 shapeClasses[shape],
                 'cursor-pointer transition-all duration-200',
                 'border-2',
-                isSelected ? 'border-blue-500 scale-105' : 'border-transparent',
+                isSelected ? 'border-bg-green scale-105' : 'border-transparent',
                 'hover:scale-110 hover:border-gray-500'
               )}
               style={{ backgroundColor: color.value }}

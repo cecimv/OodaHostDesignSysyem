@@ -1,9 +1,8 @@
 /* Importa Google Fonts */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
 
 /* Variables CSS propias si quieres (sin repetir tokens) */
 :root {
-  font-family: Roboto, sans-serif;
   line-height: 1.5;
   font-weight: 400;
   //color-scheme: light dark;
@@ -33,10 +32,6 @@ button {
   transition: border-color 0.25s;
 }
 
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
 
 /* Animaciones personalizadas */
 @keyframes shimmer {
