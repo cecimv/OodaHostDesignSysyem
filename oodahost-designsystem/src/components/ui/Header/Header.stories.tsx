@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 import { Header } from './Header'; // Asegúrate de que la ruta sea correcta
 
 const meta: Meta<typeof Header> = {
-  title: 'Example/Header/NavigationBar',
+  title: 'Others/Header/NavigationBar',
   component: Header,
   parameters: {
     layout: 'fullscreen', // Para que el header ocupe todo el ancho disponible
@@ -39,7 +39,7 @@ export const HeaderVariant: Story = {
     ],
     buttonLabel: 'Get started',
     buttonHref: '/get-started',
-    variant: 'white',
+    variant: 'outlineTextOnly',
   },
 };
 

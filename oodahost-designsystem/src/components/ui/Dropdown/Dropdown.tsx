@@ -63,7 +63,7 @@ export const Dropdown: React.FC<DropdownProps> = ({
   return (
     <div className="relative w-64">
       <button
-        className={`w-full border-4  border-white shadow-sm transition-all flex items-center hover:text-[#333333] hover:font-bold hover:bg-[#F5F4F2] font-roboto
+        className={`w-full border-4  border-white shadow-sm transition-all flex items-center gap-3 hover:text-[#333333] hover:font-bold hover:bg-[#F5F4F2] font-roboto
             ${isOpen ? 'text-[#26D086] bg-[#E9FAF3] font-bold ' : 'bg-white'}
             ${disabled ? "opacity-50 cursor-not-allowed text-[#333333]" : " "}
             ${buttonSizeClass}`}
@@ -76,8 +76,15 @@ export const Dropdown: React.FC<DropdownProps> = ({
             {disabled ? (
               <AvatarDisabledWithBadge name={name} size={avatarSize} />
             ) : (
-              <div className={`rounded-full border-2 border-green-500 overflow-hidden ${avatarSize} `}>
-                {leftIcon}
+              <div className={`rounded-full border-2 border-green-500 overflow-hidden ${avatarSize}`}>
+                {React.isValidElement(leftIcon)
+                  ? React.cloneElement(leftIcon as React.ReactElement<any>, {
+                    className: 'w-full h-full object-cover',
+                  })
+                  : leftIcon = <img
+                                  src="https://i.pravatar.cc/32?u=cristina"
+                                  alt="Cristina"
+                  />}
               </div>
             )}
           </div>

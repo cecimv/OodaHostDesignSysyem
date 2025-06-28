@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import validator from 'validator';
-import { Input } from '@/components/ui/InputEXAMPLE/Input';
+import { Input } from '@/components/ui/Input/Input';
 import { ButtonLightmode } from '../Button/Button-Lightmode';
 
 /*export const FormContactUs = () => {

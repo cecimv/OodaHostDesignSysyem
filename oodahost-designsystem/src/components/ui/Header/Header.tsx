@@ -1,7 +1,7 @@
 import * as React from 'react';
-import { ButtonLightmode } from '../Button/Button-Lightmode';
+import { ButtonLightmode } from '@/components/ui/Button/Button-Lightmode';
 
-type HeaderVariantColor = 'white' | 'light-gray' | 'gradient';
+type HeaderVariantColor = "primaryTextOnly" | "primaryLeftIcon" | "primaryRightIcon" | "outlineTextOnly" | "outlineLeftIcon" | "outlineRightIcon" | "ghostTextOnly" | "ghostLeftIcon" | "ghostRightIcon";
 
 interface NavLink {
   label: string;
@@ -30,13 +30,13 @@ export const Header: React.FC<HeaderProps> = ({
   
   buttonLabel = 'Get started',
   buttonHref = '/get-started',
-  variant = 'white',
+  variant = 'outlineTextOnly',
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   const getVariantClasses = (variant: HeaderVariantColor) => {
     switch (variant) {
-      case 'white':
+      case 'outlineTextOnly':
         return {
           container: 'bg-white text-gray-800',
           logoText: 'text-gray-800',
