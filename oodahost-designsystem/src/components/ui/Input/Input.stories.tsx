@@ -92,6 +92,22 @@ const withState = (args: any) => {
   );
 };
 
+/**************************************/
+/*Storie de prueba*/
+export const TextSimple: Story = (args: React.ComponentProps<typeof Input>) => <Input {...args} />;
+TextSimple.args = {
+  id: 'input-name',
+  label: ' ',
+  type: 'text',
+  placeholder: 'Text',
+};
+
+export const TextWithState: Story = {
+  render: withState,
+  args: TextSimple.args,
+};
+
+/**************************************/
 export const Text: Story = {
   render: withState,
   args: {

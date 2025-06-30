@@ -73,6 +73,15 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+/**************************************/
+/*Storie de prueba*/
+export const primaryTextOnlySimple: Story = (args: React.ComponentProps<typeof ButtonLightmode>) => <ButtonLightmode {...args} />;primaryTextOnlySimple.args = {
+  children: "Text",
+  variant: "primaryTextOnly",
+  size: "md",
+};
+/**************************************/
+
 export const primaryTextOnly: Story = {
     args: {
         children: "Text",
