@@ -3,7 +3,7 @@ import { Input } from '@/components/ui/Input/Input';
 import React from 'react';
 
 const meta: Meta<typeof Input> = {
-  title: 'components/Input/Input',
+  title: 'Components/Input/Input',
   component: Input,
   parameters: {
     layout: 'centered',
